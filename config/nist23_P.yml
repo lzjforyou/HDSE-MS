@@ -1,0 +1,95 @@
+run_name: "nist23"
+data:
+  all_inst_type: ["FT","QTOF","IT"]
+  base_dir: 
+  casmi22_dp: "casmi_2022"
+  casmi22_nces: [70]
+  casmi22_num_entries: -1 
+  casmi_fp: False
+  ce_key: "nce"
+  convert_ce: False
+  fp_types: ["morgan","rdkit","maccs"]
+  frag_mode: ["HCD"]
+  inst_type: ["FT"]
+  ints_thresh: 0.
+  ion_mode: "P"
+  mz_bin_res: 0.1
+  mz_max: 500.
+  neg_prec_type: ['[M-H]-']
+  num_entries: -1
+  pos_prec_type: ['[M+H]+']
+  preproc_ce: "normalize"
+  primary_dset: ["nist_23_hr_records"]
+  proc_dp: 
+  res: [1,2,3,4,5,6,7]
+  secondary_dset: []
+  spec_meta_global: True
+  spec_type: "MS2"
+  spectrum_normalization: "l1" # none
+  subsample_seed: 1
+  subsample_size: 0
+  transform: "log10over3"
+  process_spec_old: False
+model:
+  layer_type: "GINE+Transformer"
+  layers: 8
+  bidirectional_prediction: True
+  dropout: 0.4
+  embed_dim: -1
+  embed_linear: False
+  embed_types: ["hdse"]
+  ff_h_dim: 1000
+  ff_num_layers: 3
+  gt_gate_val: 0.8
+  model_seed: 999
+  output_normalization: "l1" # none
+  prec_mass_offset: 0
+run:
+  amp: False
+  base_dir: 
+  batch_loss_agg: "mean"
+  batch_size: 32
+  casmi22_pred_all: False
+  clip_grad_norm: 100000 #  5.0
+  cuda_deterministic: False
+  device: "cuda:0"
+  do_casmi22: False
+  do_test: True
+  early_stop_thresh: 7
+  filter_spec: False
+  grad_acc_interval: 1
+  ignore_casmi_in_split: False
+  learning_rate: 0.0001
+  log_auxiliary: True
+  log_tqdm: True
+  loss: "cos"
+  non_blocking: False
+  num_epochs: 100
+  num_track: 100
+  num_workers: 8
+  optimizer: "adamw"
+  pin_memory: True
+  pred_viz: True
+  pretrained: 
+  print_stats: True
+  save_media: True
+  save_split: False
+  save_state: False
+  save_test_sims: True
+  scheduler: "plateau" # "plateau" , "cosine"
+  scheduler_end_lr: 0.000000001 #1e-9
+  scheduler_period: 2
+  scheduler_ratio: 0.2
+  sec_frac: 1.00
+  sim: "cos"
+  split_key: "inchikey_s"
+  split_seed: 520
+  stop_key: "mol_loss_obj_mean"
+  test_frac: 0.2
+  test_sets: ["train","val","test"]
+  track_plot_title: True
+  train_seed: 1314
+  use_val_info: True
+  val_frac: 0.10
+  weight_decay: 0.001
+
