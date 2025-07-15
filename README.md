@@ -24,7 +24,7 @@ You can download public datasets from the following links:
 - [Public Data (HuggingFace)](https://huggingface.co/datasets/liuzhijin/Tandem_mass_spectrum)  
   A collection of tandem mass spectra for machine learning and analysis.
 
-- [MoNA (MassBank of North America)](https://mona.fiehnlab.ucdavis.edu/)  
+- [MoNA](https://mona.fiehnlab.ucdavis.edu/)  
   A free, public repository of mass spectra from North American and international contributors.
 
 - [MassBank](https://msbi.ipb-halle.de/MassBank/)  
