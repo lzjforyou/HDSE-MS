@@ -19,10 +19,19 @@ pip install -r requirements.txt
 
 ## Data Download
 
-You can download public data from the following link:  
-[Public Data](https://huggingface.co/datasets/liuzhijin/Tandem_mass_spectrum)
+You can download public datasets from the following links:
 
-Extract the downloaded ZIP file into the `data` folder within your project directory.
+- [Public Data (HuggingFace)](https://huggingface.co/datasets/liuzhijin/Tandem_mass_spectrum)  
+  A collection of tandem mass spectra for machine learning and analysis.
+
+- [MoNA (MassBank of North America)](https://mona.fiehnlab.ucdavis.edu/)  
+  A free, public repository of mass spectra from North American and international contributors.
+
+- [MassBank](https://msbi.ipb-halle.de/MassBank/)  
+  The first public repository of mass spectra for sharing and disseminating reference mass spectral data.
+
+Extract the downloaded ZIP file(s) into the `data` folder within your project directory.
+
 
 ---
 
