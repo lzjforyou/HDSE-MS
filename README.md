@@ -20,7 +20,7 @@ pip install -r requirements.txt
 ## Data Download
 
 You can download public data from the following link:  
-[https://huggingface.co/datasets/liuzhijin/Tandem_mass_spectrum](https://huggingface.co/datasets/liuzhijin/Tandem_mass_spectrum)
+[Public Data](https://huggingface.co/datasets/liuzhijin/Tandem_mass_spectrum)
 
 Extract the downloaded ZIP file into the `data` folder within your project directory.
 
