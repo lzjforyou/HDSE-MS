@@ -218,5 +218,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Feel free to modify this section based on your actual project structure or additional requirements.
+Feel free to modify this code based on your actual project structure or additional requirements.
 
