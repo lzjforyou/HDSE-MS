@@ -85,10 +85,148 @@ Follow these steps to prepare the data and run the pipeline:
    python src/train.py -c config/nist23_P.yml
    ```
 
-   **Or use pre-trained models for inference:**
-   ```bash
-   python src/inference.py -c config/nist23_P.yml --model_path HDSE-MS_pretrained/nist_model/best_model_state.pth
+---
+
+## Molecular Attention Visualization
+
+Visualize the attention weights of molecular structures to interpret model predictions.
+
+### Setup Steps
+
+1. **Uncomment Visualization Code**  
+   In `src/model.py`, uncomment the code related to `if ((self.training))` to enable attention visualization during inference.
+
+2. **Prepare Input Molecules**  
+   Add SMILES strings of molecules you want to visualize in the `smiles_list`:
+   ```python
+   smiles_list = ["O=C(Nc1ccccc1)c1ccc(Cl)cc1"]
    ```
+   > **Tip**: You can modify this part to load SMILES from CSV or TXT files for batch processing.
+
+3. **Load Pre-trained Weights**  
+   Modify the `embedder_prefix` and model path to load the appropriate pre-trained weights:
+   ```python
+   state_dict = torch.load('HDSE-MS_pretrained/nist_model/best_model_state.pth', map_location='cpu')
+   embedder_prefix = "embedders.0."  # Adjust based on your model architecture
+   ```
+
+4. **Customize Visualization Parameters**  
+   Modify parameters in the `draw_graph_with_attn` function to customize plot labels, colors, and layout:
+   ```python
+   draw_graph_with_attn(
+       graph_data=batch_graph,
+       attention_weights=attn_weights,
+       title="Molecular Attention Heatmap",
+       save_path="output/attention_viz.png"
+   )
+   ```
+
+5. **Run Visualization**  
+   Execute the model script:
+   ```bash
+   python src/model.py
+   ```
+
+### Example Code Snippet
+
+```python
+from HDSE_MS_data_utils import HDSE_MS_preprocess
+
+def test_model():
+    # Define molecules to visualize
+    smiles_list = ["O=C(Nc1ccccc1)c1ccc(Cl)cc1"]
+    data_list = []
+
+    # Preprocess SMILES
+    for idx, smiles in enumerate(smiles_list):
+        data = HDSE_MS_preprocess(smiles, idx)
+        data_list.append(data)
+
+    batch_graph = Batch.from_data_list(data_list)
+
+    # Load pre-trained model
+    model = HDSE_MS_Embedder()
+    state_dict = torch.load('HDSE-MS_pretrained/nist_model/best_model_state.pth', map_location='cpu')
+    embedder_prefix = "embedders.0."
+    embedder_state_dict = {
+        k[len(embedder_prefix):]: v
+        for k, v in state_dict.items()
+        if k.startswith(embedder_prefix)
+    }
+    
+    result = model.load_state_dict(embedder_state_dict, strict=False)
+    if len(result.missing_keys) == 0 and len(result.unexpected_keys) == 0:
+        print("✓ Model weights loaded successfully!")
+    else:
+        print("⚠ Some weights failed to load:")
+        print("  Missing keys:", result.missing_keys)
+        print("  Unexpected keys:", result.unexpected_keys)
+
+    # Generate predictions and visualizations
+    try:
+        output = model({"hdse": batch_graph})
+        print("\n✓ Model output shape:", output.shape)
+        print("✓ Attention visualization saved!")
+    except Exception as e:
+        print("\n✗ Error during model forward pass:")
+        print(e)
+
+global_plot_counter = 0
+if __name__ == "__main__":
+    test_model()
+```
+
+### Output
+
+The script will generate:
+- **Attention heatmaps**: Visualizing which atoms/bonds the model focuses on
+- **Console output**: Model predictions and validation metrics
+
+Visualization files will be saved in the specified output directory (default: `output/`).
+
+### Tips
+
+- **Batch Processing**: Load multiple SMILES from a file:
+  ```python
+  import pandas as pd
+  df = pd.read_csv('molecules.csv')
+  smiles_list = df['smiles'].tolist()
+  ```
+
+- **Different Models**: Change `embedder_prefix` for different model architectures:
+  - NIST model: `"embedders.0."`
+  - MassBank model: `"embedders.1."`
+  - Custom models: Check your model's state dict keys
+
+- **Customize Plots**: Adjust `draw_graph_with_attn` parameters for publication-quality figures
+
+---
+
+## Citation
+
+If you use HDSE-MS in your research, please cite:
+
+```bibtex
+@article{your_paper,
+  title={HDSE-MS: Your Paper Title},
+  author={Your Name},
+  journal={Journal Name},
+  year={2025}
+}
+```
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## Acknowledgments
+
+- Data processing logic adapted from [Roestlab/massformer](https://github.com/Roestlab/massformer)
+- Pre-trained models hosted on [Hugging Face](https://huggingface.co/liuzhijin/HDSE-MS-models)
 
 
 ---
