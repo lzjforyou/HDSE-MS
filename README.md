@@ -200,20 +200,8 @@ Visualization files will be saved in the specified output directory (default: `o
 
 - **Customize Plots**: Adjust `draw_graph_with_attn` parameters for publication-quality figures
 
----
 
-## Citation
 
-If you use HDSE-MS in your research, please cite:
-
-```bibtex
-@article{your_paper,
-  title={HDSE-MS: Your Paper Title},
-  author={Your Name},
-  journal={Journal Name},
-  year={2025}
-}
-```
 
 ---
 
@@ -226,7 +214,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 - Data processing logic adapted from [Roestlab/massformer](https://github.com/Roestlab/massformer)
-- Pre-trained models hosted on [Hugging Face](https://huggingface.co/liuzhijin/HDSE-MS-models)
 
 
 ---
