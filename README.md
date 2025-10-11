@@ -19,6 +19,8 @@ pip install -r requirements.txt
 
 ## Data Download
 
+### Datasets
+
 You can download public datasets from the following links:
 
 - [Public Data (HuggingFace)](https://huggingface.co/datasets/liuzhijin/Tandem_mass_spectrum)  
@@ -32,6 +34,27 @@ You can download public datasets from the following links:
 
 Extract the downloaded ZIP file(s) into the `data` folder within your project directory.
 
+### Pre-trained Models
+
+Pre-trained model weights are available for direct use:
+
+🤗 **[Download Pre-trained Models](https://huggingface.co/liuzhijin/HDSE-MS-models/tree/main/HDSE-MS_pretrained)**
+
+Available models:
+- **NIST Model**: Trained on NIST23 dataset
+- **MassBank Model**: Trained on MassBank dataset
+- **All CE Model**: Trained on combined collision energy data
+
+**Quick Download:**
+```bash
+# Install huggingface_hub
+pip install huggingface_hub
+
+# Download specific model (example: NIST model)
+python -c "from huggingface_hub import hf_hub_download; hf_hub_download(repo_id='liuzhijin/HDSE-MS-models', filename='HDSE-MS_pretrained/nist_model/best_model_state.pth', local_dir='.')"
+```
+
+Or download manually from the link above and place the `.pth` files in your desired directory.
 
 ---
 
@@ -61,6 +84,12 @@ Follow these steps to prepare the data and run the pipeline:
    ```bash
    python src/train.py -c config/nist23_P.yml
    ```
+
+   **Or use pre-trained models for inference:**
+   ```bash
+   python src/inference.py -c config/nist23_P.yml --model_path HDSE-MS_pretrained/nist_model/best_model_state.pth
+   ```
+
 
 ---
 
