@@ -1,11 +1,14 @@
-Web Service
+## Web Service
+
 Try our web app for spectrum prediction and attention visualization without local setup:
 
-URL: https://huggingface.co/spaces/liuzhijin/hdse-ms-attn-viz
-Features:
-Input SMILES and get predicted spectra online
-Visualize molecular attention weights (atom/bond-level heatmaps)
-Choose among different pretrained models for quick comparison
+**[🚀 Launch Web App](https://huggingface.co/spaces/liuzhijin/hdse-ms-attn-viz)**
+
+### Features:
+- Input SMILES and get predicted spectra online
+- Visualize molecular attention weights (atom/bond-level heatmaps)  
+- Choose among different pretrained models for quick comparison
+
 # HDSE-MS Data Preparation and Usage
 
 ## Conda Installation
