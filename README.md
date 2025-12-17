@@ -26,8 +26,15 @@ conda create -n HDSE-MS python=3.9.20
 Activate the newly created conda environment and install the necessary dependencies:
 
 ```bash
-conda activate HDSE-MS
+# 1.
+pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu117
+
+# 2. 
+pip install torch-scatter torch-sparse torch-cluster torch-spline-conv -f https://data.pyg.org/whl/torch-1.13.0+cu117.html
+
+# 3.
 pip install -r requirements.txt
+
 ```
 
 ---
