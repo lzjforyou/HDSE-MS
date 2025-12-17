@@ -1,6 +1,6 @@
 For code reproduction inquiries, please contact `2026552343 [at] qq [dot] com`. 
 
-> **Note:** This model is primarily compared against binning-based models, which inherently suffer from low-resolution limitations. For advanced research in mass spectrum prediction, we recommend exploring fragmentation-based approaches (e.g., [FraGNNet](https://github.com/FraGNNet/fragnnet), [ms-pred](https://github.com/samgoldman97/ms-pred), [Fiora](https://github.com/BAMeScience/fiora)) and utilizing standardized benchmark datasets like [MassSpecGym](https://github.com/pluskal-lab/MassSpecGym).
+> **Note:** This model is primarily compared against binning-based models, which inherently suffer from low-resolution limitations. For advanced research in mass spectrum prediction achieving at least 0.01 Da resolution, we recommend exploring fragmentation-based approaches (e.g., [FraGNNet](https://github.com/FraGNNet/fragnnet), [ms-pred](https://github.com/samgoldman97/ms-pred), [Fiora](https://github.com/BAMeScience/fiora)) and utilizing standardized benchmark datasets like [MassSpecGym](https://github.com/pluskal-lab/MassSpecGym).
 
 ## Web Service
 
