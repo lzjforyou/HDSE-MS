@@ -1,0 +1,54 @@
+# --- Deep Learning (PyTorch & DGL) ---
+# 注意：CUDA 版本为 11.7
+torch==1.13.1
+torchvision==0.14.1
+torchaudio==0.13.1
+dgl-cu117==0.9.1.post1
+dgllife==0.3.0
+
+# --- Graph Neural Networks (PyG) ---
+torch-geometric==2.6.1
+torch-scatter
+torch-sparse
+torch-cluster
+torch-spline-conv
+
+# --- Chemistry & Bioinformatics ---
+rdkit>=2024.09.2
+pubchempy==1.0.4
+pyteomics==4.7.5
+molmass==2024.10.25
+alfabet==0.4.1
+nfp==0.3.12
+jcamp==1.2.2
+
+# --- Data Science & Math ---
+numpy==1.23.5
+pandas==2.3.0
+scikit-learn==0.24.2
+scipy==1.13.1
+statsmodels==0.14.4
+networkx==3.2.1
+joblib==1.4.2
+
+# --- Visualization ---
+matplotlib==3.9.2
+seaborn==0.13.2
+wandb==0.21.0
+tensorboard==2.19.0
+
+# --- Web & UI ---
+gradio==3.24.1
+fastapi==0.116.1
+uvicorn==0.35.0
+selenium==4.24.0
+
+# --- Utilities ---
+tqdm==4.66.5
+pyyaml==6.0.2
+omegaconf==2.3.0
+antlr4-python3-runtime==4.9.3
+python-dotenv==1.1.0
+requests==2.32.3
+beautifulsoup4==4.12.3
+huggingface_hub==0.34.4
